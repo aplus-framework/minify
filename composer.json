@@ -1,0 +1,53 @@
+{
+	"name": "natanfelles/minify",
+	"type": "library",
+	"description": "The Framework Minify package",
+	"keywords": [
+		"minify"
+	],
+	"homepage": "https://the-framework.gitlab.io/libraries/minify.html",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Natan Felles",
+			"email": "natanfelles@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=7.4",
+		"ext-dom": "*",
+		"ext-libxml": "*"
+	},
+	"require-dev": {
+		"ext-xdebug": "*",
+		"ergebnis/composer-normalize": "^2.0",
+		"natanfelles/coding-standard": "^1.0",
+		"phpmd/phpmd": "^2.8",
+		"phpstan/phpstan": "^0.12",
+		"phpunit/phpunit": "^8.5"
+	},
+	"autoload": {
+		"psr-4": {
+			"Framework\\Minify\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\Minify\\": "tests/"
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"scripts": {
+		"post-update-cmd": [
+			"composer dump-autoload"
+		]
+	},
+	"support": {
+		"email": "natanfelles@gmail.com",
+		"issues": "https://gitlab.com/the-framework/libraries/minify/issues",
+		"wiki": "https://gitlab.com/the-framework/libraries/minify/wikis/home",
+		"source": "https://gitlab.com/the-framework/libraries/minify",
+		"docs": "https://the-framework.gitlab.io/libraries/minify/docs/"
+	}
+}
