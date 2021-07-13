@@ -3,7 +3,12 @@
     "type": "library",
     "description": "The Framework Minify package",
     "keywords": [
-        "minify"
+        "minify",
+        "compression",
+        "html",
+        "css",
+        "js",
+        "javascript"
     ],
     "homepage": "https://the-framework.gitlab.io/libraries/minify.html",
     "license": "proprietary",
