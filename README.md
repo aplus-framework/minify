@@ -1,4 +1,4 @@
-# The Framework Minify Library
+# Aplus Framework Minify Library
 
 - [Homepage](https://the-framework.gitlab.io/libraries/minify.html)
 - [API Documentation](https://the-framework.gitlab.io/libraries/minify/docs/)
