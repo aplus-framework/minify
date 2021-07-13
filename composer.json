@@ -1,7 +1,7 @@
 {
-    "name": "natanfelles/minify",
+    "name": "aplus/minify",
     "type": "library",
-    "description": "The Framework Minify package",
+    "description": "Aplus Framework Minify package",
     "keywords": [
         "minify",
         "compression",
@@ -10,7 +10,7 @@
         "js",
         "javascript"
     ],
-    "homepage": "https://the-framework.gitlab.io/libraries/minify.html",
+    "homepage": "https://aplus-framework.com/docs/minify",
     "license": "proprietary",
     "authors": [
         {
@@ -50,9 +50,9 @@
     },
     "support": {
         "email": "natanfelles@gmail.com",
-        "issues": "https://gitlab.com/the-framework/libraries/minify/issues",
-        "wiki": "https://gitlab.com/the-framework/libraries/minify/wikis/home",
-        "source": "https://gitlab.com/the-framework/libraries/minify",
-        "docs": "https://the-framework.gitlab.io/libraries/minify/docs/"
+        "issues": "https://gitlab.com/aplus-framework/libraries/minify/issues",
+        "wiki": "https://gitlab.com/aplus-framework/libraries/minify/wikis/home",
+        "source": "https://gitlab.com/aplus-framework/libraries/minify",
+        "docs": "https://aplus-framework.gitlab.io/libraries/minify/docs/"
     }
 }
