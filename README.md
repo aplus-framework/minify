@@ -1,3 +1,5 @@
+<a href="https://gitlab.com/aplus-framework/libraries/minify"><img src="https://gitlab.com/aplus-framework/libraries/minify/-/raw/master/guide/image.png" alt="Aplus Framework Minify Library" align="right" width="100"></a>
+
 # Aplus Framework Minify Library
 
 - [User Guide](https://docs.aplus-framework.com/guides/libraries/minify/index.html)
