@@ -1,7 +1,8 @@
 {
     "name": "aplus/minify",
+    "description": "Aplus Framework Minify Library",
+    "license": "GPL-3.0-or-later",
     "type": "library",
-    "description": "Aplus Framework Minify package",
     "keywords": [
         "minify",
         "compression",
@@ -10,27 +11,42 @@
         "js",
         "javascript"
     ],
-    "homepage": "https://aplus-framework.com/docs/minify",
-    "license": "proprietary",
     "authors": [
         {
             "name": "Natan Felles",
-            "email": "natanfelles@gmail.com"
+            "email": "natanfelles@gmail.com",
+            "homepage": "https://natanfelles.github.io"
+        }
+    ],
+    "homepage": "https://aplus-framework.com/packages/minify",
+    "support": {
+        "email": "support@aplus-framework.com",
+        "issues": "https://gitlab.com/aplus-framework/libraries/minify/issues",
+        "forum": "https://aplus-framework.com/forum",
+        "source": "https://gitlab.com/aplus-framework/libraries/minify",
+        "docs": "https://docs.aplus-framework.com/guides/libraries/minify/"
+    },
+    "funding": [
+        {
+            "type": "Aplus Sponsor",
+            "url": "https://aplus-framework.com/sponsor"
         }
     ],
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.1",
         "ext-dom": "*",
         "ext-libxml": "*"
     },
     "require-dev": {
         "ext-xdebug": "*",
-        "ergebnis/composer-normalize": "^2.0",
-        "natanfelles/coding-standard": "^1.0",
-        "phpmd/phpmd": "^2.9",
-        "phpstan/phpstan": "^0.12",
-        "phpunit/phpunit": "^9.3"
+        "aplus/coding-standard": "^1.12",
+        "ergebnis/composer-normalize": "^2.28",
+        "phpmd/phpmd": "^2.12",
+        "phpstan/phpstan": "^1.7",
+        "phpunit/phpunit": "^9.5"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Framework\\Minify\\": "src/"
@@ -41,18 +57,12 @@
             "Tests\\Minify\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-update-cmd": [
-            "composer dump-autoload"
-        ]
-    },
-    "support": {
-        "email": "natanfelles@gmail.com",
-        "issues": "https://gitlab.com/aplus-framework/libraries/minify/issues",
-        "wiki": "https://gitlab.com/aplus-framework/libraries/minify/wikis/home",
-        "source": "https://gitlab.com/aplus-framework/libraries/minify",
-        "docs": "https://aplus-framework.gitlab.io/libraries/minify/docs/"
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        },
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
     }
 }
