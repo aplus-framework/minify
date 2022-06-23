@@ -1,30 +1,44 @@
-<?php namespace Tests\Minify;
+<?php
+/*
+ * This file is part of Aplus Framework Minify Library.
+ *
+ * (c) Natan Felles <natanfelles@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+namespace Tests\Minify;
 
 use Framework\Minify\Minify;
 use PHPUnit\Framework\TestCase;
 
-class MinifyTest extends TestCase
+final class MinifyTest extends TestCase
 {
-    public function testCSS() : void
+    public function testCss() : void
     {
         $contents = <<<'CSS'
             body {
-            	color: black
+                color: black;
+            }
+
+            div {
+                height: 200px;
+                width: calc(10px + 100px);
             }
             CSS;
-        $expected = 'body{color:black}';
-        $this->assertEquals($expected, Minify::css($contents));
-        $this->assertEquals('', Minify::css(''));
+        $expected = 'body{color:black}div{height:200px;width:calc(10px + 100px)}';
+        self::assertSame($expected, Minify::css($contents));
+        self::assertSame('', Minify::css(''));
     }
 
-    public function testHTML() : void
+    public function testHtml() : void
     {
         $contents = <<<'HTML'
             <!DOCTYPE html>
             <html lang="en">
             <head>
-            	<meta charset="UTF-8">
-            	<title>Title</title>
+                <meta charset="UTF-8">
+                <title>Title</title>
             </head>
             <body style="color: black">
               Hello!
@@ -32,19 +46,19 @@ class MinifyTest extends TestCase
             </html>
             HTML;
         $expected = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Title</title></head><body style="color:black">Hello!</body></html>';
-        $this->assertEquals($expected, Minify::html($contents));
-        $this->assertEquals('', Minify::html(''));
+        self::assertSame($expected, Minify::html($contents));
+        self::assertSame('', Minify::html(''));
     }
 
-    public function testJS() : void
+    public function testJs() : void
     {
         $contents = <<<'JS'
             var a = new Date();
             console.log( a.getDate() )
             JS;
         $expected = 'var a=new Date();console.log(a.getDate())';
-        $this->assertEquals($expected, Minify::js($contents));
-        $this->assertEquals('', Minify::js(''));
+        self::assertSame($expected, Minify::js($contents));
+        self::assertSame('', Minify::js(''));
     }
 
     public function testAll() : void
@@ -53,27 +67,34 @@ class MinifyTest extends TestCase
             <!DOCTYPE html>
             <html lang="en">
             <head>
-            	<meta charset="UTF-8">
-            	<title>Title</title>
-            	<style>
-            		body {
-            			color: black
-            		}
-            	</style>
+                <meta charset="UTF-8">
+                <title>Title</title>
+                <style>
+                    body {
+                        color: black
+                    }
+                </style>
             </head>
             <body style="color: black">
-            	Hello!
-            	<script>
+                Hello!
+                <script>
                     var a = new Date();
-            		console.log( a.getDate() )
-            	</script>
+                    console.log( a.getDate() )
+                </script>
             </body>
             </html>
             ALL;
         $expected = <<<'EXP'
-            <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Title</title><style>body{color:black}</style></head><body style="color:black">Hello!	<script>var a=new Date();console.log(a.getDate())</script></body></html>
+            <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Title</title><style>body{color:black}</style></head><body style="color:black">Hello! <script>var a=new Date();console.log(a.getDate())</script></body></html>
             EXP;
-        $this->assertEquals($expected, Minify::all($contents));
-        $this->assertEquals('', Minify::all(''));
+        self::assertSame($expected, Minify::all($contents));
+        $expected = <<<'EXP'
+            <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Title</title><style>body {
+                        color: black
+                    }</style></head><body style="color:black">Hello! <script>var a = new Date();
+                    console.log( a.getDate() )</script></body></html>
+            EXP;
+        self::assertSame($expected, Minify::all($contents, true, false, false));
+        self::assertSame('', Minify::all(''));
     }
 }
