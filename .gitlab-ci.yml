@@ -34,7 +34,6 @@ pages:
   timeout: 10 minutes
   dependencies:
     - test:php
-    - test:php:mysql
   environment:
     name: production
     url: https://aplus-framework.gitlab.io
