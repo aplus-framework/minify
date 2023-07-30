@@ -21,9 +21,9 @@
     "homepage": "https://aplus-framework.com/packages/minify",
     "support": {
         "email": "support@aplus-framework.com",
-        "issues": "https://gitlab.com/aplus-framework/libraries/minify/issues",
+        "issues": "https://github.com/aplus-framework/minify/issues",
         "forum": "https://aplus-framework.com/forum",
-        "source": "https://gitlab.com/aplus-framework/libraries/minify",
+        "source": "https://github.com/aplus-framework/minify",
         "docs": "https://docs.aplus-framework.com/guides/libraries/minify/"
     },
     "funding": [
