@@ -11,14 +11,11 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
 
-    strategy:
-      fail-fast: true
-
     name: PHP 8.1
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -47,10 +44,10 @@ jobs:
 
       - name: PHPStan
         run:
-          vendor/bin/phpstan analyse --xdebug -vvv
+          vendor/bin/phpstan analyse -vvv
 
       - name: PHPUnit
-        run: vendor/bin/phpunit --verbose
+        run: vendor/bin/phpunit
 
       - name: Upload coverage results to Coveralls
         env:
@@ -61,31 +58,26 @@ jobs:
           composer global require php-coveralls/php-coveralls
           php-coveralls --coverage_clover=build/logs/clover.xml -v
 
-  tests-last:
+  tests-latest:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
 
-    strategy:
-      fail-fast: true
-
-    name: PHP 8.2 - Last
+    name: PHP Latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
+          php-version: latest
           tools: composer
           coverage: xdebug
 
       - name: Install dependencies
-        env:
-          COMPOSER_ROOT_VERSION: dev-master
         run:
           composer update
 
       - name: PHPUnit
-        run: vendor/bin/phpunit --verbose
+        run: vendor/bin/phpunit
